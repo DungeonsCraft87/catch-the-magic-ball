@@ -153,9 +153,6 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
 info.onCountdownEnd(function () {
     game.gameOver(false)
 })
-info.onScore(100, function () {
-    game.gameOver(true)
-})
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
     mySprite,
@@ -234,7 +231,7 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
     info.changeScoreBy(1)
-    mySprite2.setPosition(randint(0, 158), randint(0, 158))
+    mySprite2.setPosition(randint(0, 250), randint(0, 250))
 })
 controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
@@ -312,9 +309,12 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     true
     )
 })
+info.onScore(50, function () {
+    game.gameOver(true)
+})
 let mySprite2: Sprite = null
 let mySprite: Sprite = null
-info.startCountdown(500)
+info.startCountdown(660)
 mySprite = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
@@ -335,22 +335,23 @@ mySprite = sprites.create(img`
     `, SpriteKind.Player)
 controller.moveSprite(mySprite)
 scene.cameraFollowSprite(mySprite)
-tiles.setCurrentTilemap(tilemap`level1`)
+tiles.setCurrentTilemap(tilemap`level`)
 mySprite2 = sprites.create(img`
     . . . . . . . . . . . . . . . . 
-    . . . . . d d d d . . . . . . . 
-    . . . . d 9 9 9 9 d . . . . . . 
-    . . . d b b b b b b d . . . . . 
-    . . d b 7 7 a a 7 7 b d . . . . 
-    . d b 7 7 a a a a 7 7 b d . . . 
-    d 9 b 7 a 3 3 3 3 a 7 b 9 d . . 
-    d 9 b a a 3 7 7 3 a a b 9 d . . 
-    d 9 b a a 3 7 7 3 a a b 9 d . . 
-    d 9 b 7 a 3 3 3 3 a 7 b 9 d . . 
-    . d b 7 7 a a a a 7 7 b d . . . 
-    . . d b 7 7 a a 7 7 b d . . . . 
-    . . . d b b b b b b d . . . . . 
-    . . . . d 9 9 9 9 d . . . . . . 
-    . . . . . d d d d . . . . . . . 
+    . . . . . . d d d d . . . . . . 
+    . . . . . d 9 9 9 9 d . . . . . 
+    . . . . d b b b b b b d . . . . 
+    . . . d b 7 7 a a 7 7 b d . . . 
+    . . d b 7 7 a a a a 7 7 b d . . 
+    . d 9 b 7 a 3 3 3 3 a 7 b 9 d . 
+    . d 9 b a a 3 7 7 3 a a b 9 d . 
+    . d 9 b a a 3 7 7 3 a a b 9 d . 
+    . d 9 b 7 a 3 3 3 3 a 7 b 9 d . 
+    . . d b 7 7 a a a a 7 7 b d . . 
+    . . . d b 7 7 a a 7 7 b d . . . 
+    . . . . d b b b b b b d . . . . 
+    . . . . . d 9 9 9 9 d . . . . . 
+    . . . . . . d d d d . . . . . . 
     . . . . . . . . . . . . . . . . 
     `, SpriteKind.Projectile)
+mySprite2.setPosition(randint(0, 250), randint(0, 250))
