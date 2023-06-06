@@ -74,6 +74,10 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     true
     )
 })
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    mySprite.setPosition(randint(0, 250), randint(0, 250))
+    music.play(music.createSoundEffect(WaveShape.Noise, 899, 3871, 255, 0, 500, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
+})
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
     mySprite,
@@ -314,7 +318,7 @@ info.onScore(50, function () {
 })
 let mySprite2: Sprite = null
 let mySprite: Sprite = null
-info.startCountdown(660)
+info.startCountdown(240)
 mySprite = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
