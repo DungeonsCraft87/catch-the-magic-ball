@@ -76,7 +76,7 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     mySprite.setPosition(randint(0, 250), randint(0, 250))
-    music.play(music.createSoundEffect(WaveShape.Noise, 899, 3871, 255, 0, 500, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
+    music.play(music.createSoundEffect(WaveShape.Noise, 899, 3871, 255, 0, 500, SoundExpressionEffect.Vibrato, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
 })
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
@@ -358,4 +358,4 @@ mySprite2 = sprites.create(img`
     . . . . . . d d d d . . . . . . 
     . . . . . . . . . . . . . . . . 
     `, SpriteKind.Projectile)
-mySprite2.setPosition(randint(0, 250), randint(0, 250))
+mySprite2.setPosition(randint(0, 250), 0)
